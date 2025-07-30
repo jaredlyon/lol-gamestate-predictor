@@ -1,19 +1,22 @@
 import requests
+from dotenv import load_dotenv
+import os
 
-RIOT_API_KEY = "RGAPI-XXX-..."
-SUMMONER_NAME = "XXX"
-REGION = "na1"
+load_dotenv()
 
-# Encode spaces
-encoded_name = SUMMONER_NAME.replace(" ", "%20")
-url = f"https://{REGION}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{encoded_name}"
+RIOT_API_KEY = os.getenv("RIOT_API_KEY")
+SUMMONER_NAME = os.getenv("SUMMONER_NAME")
+TAG_LINE = os.getenv("TAG_LINE")
+REGION = os.getenv("REGION")
+
+print("API Key Loaded:", bool(RIOT_API_KEY))  # confirm key load
+
+url = f"https://{REGION}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{SUMMONER_NAME}/{TAG_LINE}"
 
 headers = {
     "X-Riot-Token": RIOT_API_KEY
 }
 
-print("Requesting:", url)
 response = requests.get(url, headers=headers)
-
 print("Status Code:", response.status_code)
 print("Response Body:", response.text)
