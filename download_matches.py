@@ -94,7 +94,7 @@ def download_match_data(match_id):
         json.dump(timeline_data, f)
     print(f"saved: {match_id}")
 
-# main
+# main def
 def main():
     print("getting puuid...")
     puuid = get_puuid()
@@ -104,7 +104,7 @@ def main():
 
     print("getting match ids...")
     match_ids = get_match_ids(puuid)
-    print(f"found {len(match_ids)} matches")
+    print(f"found {len(match_ids)} matches - the filter may skip some of these")
 
     for i, match_id in enumerate(match_ids):
         print(f"[{i+1}/{len(match_ids)}] downloading {match_id}...")
