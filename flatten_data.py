@@ -45,12 +45,12 @@ def main():
 
     print("flattening matches...")
     match_df = load_and_flatten_jsons(INPUT_DIR, suffix='match') # suffix match for match data
-    match_df.to_csv(os.path.join(OUTPUT_DIR, 'match_data.csv'), index=False)
+    match_df.to_csv(os.path.join(OUTPUT_DIR, '1_match_data_raw.csv'), index=False)
     print(f"saved match_data.csv with {len(match_df)} rows.")
 
     print("flattening timelines...")
-    timeline_df = load_and_flatten_jsons(INPUT_DIR, suffix='timeline') # suffic timeline for timelane data
-    timeline_df.to_csv(os.path.join(OUTPUT_DIR, 'timeline_data.csv'), index=False)
+    timeline_df = load_and_flatten_jsons(INPUT_DIR, suffix='timeline') # suffix timeline for timeline data
+    timeline_df.to_csv(os.path.join(OUTPUT_DIR, '1_timeline_data_raw.csv'), index=False)
     print(f"saved timeline_data.csv with {len(timeline_df)} rows.")
 
 if __name__ == '__main__':

@@ -20,5 +20,5 @@ def save_headers(csv_file: str, output_txt: str):
     
     print(f"extracted {len(headers)} headers from {csv_file} into {output_txt}.")
 
-save_headers("match_data.csv", "match_headers.txt")
-save_headers("timeline_data.csv", "timeline_headers.txt")
+save_headers("1_match_data_raw.csv", "match_headers.txt")
+save_headers("2_match_data_raw.csv", "timeline_headers.txt")
